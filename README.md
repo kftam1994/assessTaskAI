@@ -31,6 +31,10 @@ An image with English words and numbers on it can be uploaded. The text will be 
 
 ## Architecture
 
+Flow diagram
+
+![flow_diagram_assesstaskai](https://user-images.githubusercontent.com/33834357/33081420-49d5b9f4-cf15-11e7-81cf-f61bb0b20025.png)
+
 ## English Word Generator
 
 An English word generator produces images of English characters and numbers for each font and each font size in a black background. It includes 26 upper case and lower case characters, and numbers, 0 to 9. Those 53 font files are in "src_smallSubset/Font/" folder. 4 Font sizes, 8,12,36,40, are used. 13144 images are produced and saved to the folder "words_generated".
