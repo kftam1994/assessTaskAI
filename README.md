@@ -29,7 +29,7 @@ Then, the page can be browsed at the address http://127.0.0.1:5000
 
 An image with English words and numbers on it can be uploaded. The text will be retrieved and displayed in the result image after processing.
 
-## Program Structure
+## Architecture
 
 ## English Word Generator
 
@@ -37,7 +37,12 @@ An English word generator produces images of English characters and numbers for 
 
 ## Other Dataset
 
-Apart from English Word Generator, other English character and number datasets are also inputted to improve the performance of the model. Datasets of different variation of character include 6979 computer font character images from [Chars74k dataset](http://www.ee.surrey.ac.uk/CVSSP/demos/chars74k/), a subset of 6283 street view character image from [dataset](https://www.kaggle.com/c/street-view-getting-started-with-julia/data), and a handwritten character dataset of 14000 images from [EMNIST](https://www.nist.gov/itl/iad/image-group/emnist-dataset).
+Apart from English Word Generator, other English character and number datasets are also inputted to improve the performance of the model. Datasets of different variation of character include:
+
+ * 6979 computer font character images from [Chars74k](http://www.ee.surrey.ac.uk/CVSSP/demos/chars74k/) dataset
+ * A subset of 6283 street view character image from Chars74k dataset in [here](https://www.kaggle.com/c/street-view-getting-started-with-julia/data)
+ * A handwritten character dataset of 14000 images from [EMNIST](https://www.nist.gov/itl/iad/image-group/emnist-dataset)
+ 
 Moreover, an object image dataset from [CIFAR-10](https://www.kaggle.com/c/cifar-10/data) is used to recognize objects other than character and number.
 
 ## Preprocessing and Extracting Features
@@ -52,7 +57,7 @@ Support Vector Machine Classifier (SVC) aims at identifying and differentiating 
 
 ## Neural Netwrok Model
 
-Multi-layer Perceptron (MLP) neural network model aims at classifying an image to 62 classes of upper case and lower case characters, and digits. Scikit-learn [MLP](http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html) package is used to build the model. The following are the parameters:
+Multi-layer Perceptron (MLP) neural network model aims at classifying an image to 62 classes of upper case and lower case characters, and digits by backpropagation. Scikit-learn [MLP](http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html) package is used to build the model. The following are the parameters:
 
  * Solver: stochastic gradient-based optimizer
  * Activation function: hyperbolic tan function
@@ -63,12 +68,15 @@ Features of street view character image, handwritten character image and image g
 
 ## HTML page
 
-The HTML page is a simple interface for user to upload an image, process by predicting the text and display the output image. It is built with [Flask](http://flask.pocoo.org/), which is a tool to create a page and run python function in the HTML page. The image is firstly uploaded by the user and saved in the "static" folder. The image is then read by the function to predict text in the image, and print and save the text on a blank background. The function look for objects in the image through searching for contours at level 0.45 by [find.contours](http://scikit-image.org/docs/dev/api/skimage.measure.html#skimage.measure.find_contours) of Scikit-image package. After finding contours, the cropping image of objects appearing in the image 
+The HTML page is a simple interface for user to upload an image, process by predicting the text and display the output image. It is built with [Flask](http://flask.pocoo.org/), which is a tool to create a page and run python function in the HTML page. The image is firstly uploaded by the user in the index.html page and saved in the "static" folder. The image is then read by the function to predict text in the image, and print and save the text on a blank background. The function look for objects in the image through searching for contours at level 0.45 by [find.contours](http://scikit-image.org/docs/dev/api/skimage.measure.html#skimage.measure.find_contours) of Scikit-image package. After finding contours, SVC model is loaded and takes the cropping images of objects appearing in the image to filter out images containing non-text objects. MLP model is then loaded and takes the filtered images to identify each character and number. The text is printed on a blank background image, and this result image is saved to the "static" folder. The original image and the result image are displyed in the result.html page.
 
 ## Improvement
 
-CNN
-Full Chars74k dataset
+ * [Convolutional Neural Networks](https://en.wikipedia.org/wiki/Convolutional_neural_network)
+Convolutional neural network is a deep, feed-forward artificial neural networks for image processing and recognition. It includes multiple Convolutional and Pooling layers to learn the image in pixels. It has an advantage of less preprocessing procedures required when it is compared to my model.
+ 
+ * A full [Chars74k](http://www.ee.surrey.ac.uk/CVSSP/demos/chars74k/) dataset
+The full Chars74k dataset contains 50000 character images from street view, computer font and handwritten text. 
 
 ## Contact 
-If you have any questions or suggestions feel free to contact me at <kftam@connect.ust.hk>.
+If you have any enquiries or suggestions, please feel free to contact me at <kftam@connect.ust.hk>.
