@@ -38,13 +38,17 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            process(filename)
-            return render_template('result.html',image_value=os.path.join(app.config['UPLOAD_FOLDER'], filename),result_value=os.path.join(app.config['UPLOAD_FOLDER'], "result_"+filename))
+            text=process(filename)
+            return render_template('result.html',
+				   image_value=os.path.join(app.config['UPLOAD_FOLDER'], filename),
+				   result_value=os.path.join(app.config['UPLOAD_FOLDER'], "result_"+filename),
+				   result_text=text)
         
     return render_template('index.html')
 
 
 def process(filename):
+	#A function to predict text in the image, and print and save the text on a blank background
 	#Packages matplotlib, skimage and sklearn required
 	import numpy as np
 	import matplotlib.pyplot as plt
@@ -91,7 +95,7 @@ def process(filename):
 	blank_image=np.zeros(image.shape,dtype=np.uint8)
 	ax.imshow(blank_image, interpolation='nearest', cmap=plt.cm.gray)
 	for point,text in zip(np.array(list_image)[filter_char.astype(bool)].tolist(),result):
-		ax.text((point[3]+point[2])/2,(point[1]+point[0])/2,text,color="white",fontsize=20)
+		ax.text((point[3]+point[2])/2,(point[1]+point[0])/2,text,color="white",fontsize=25)
 	ax.axis("image")
 	ax.set_xticks([])
 	ax.set_yticks([])
@@ -102,6 +106,7 @@ def process(filename):
 	#Save the result
 	plt.savefig(os.path.join(app.config['UPLOAD_FOLDER'], "result_"+filename))
 	plt.close("all")
+	return result
 			   
 							   
 #Run the web app							   
