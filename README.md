@@ -12,8 +12,8 @@ The result page:
 
 To run the page, it needs Python 3 to be installed. It also needs packages including
  * Matplotlib
- * scikit-image(skimage)
- * scikit-learn(sklearn)
+ * Scikit-image(skimage)
+ * Scikit-learn(sklearn)
  * Flask
 
 Packages can be installed through pip.
@@ -37,14 +37,18 @@ Moreover, an object image dataset from [CIFAR-10](https://www.kaggle.com/c/cifar
 
 ## Preprocessing and Extracting Features
 
-Street view character image, handwritten character and object image datasets are noisy images from photos in Google Street View or scanning of handwritten document. 
-Computer font character and words from English Generator are also changed to grayscale and resized to 32x32 pixels.
+Images are preprocessed and then features are extracted before feeding them to the models. Street view character image, handwritten character and object image datasets are noisy images from photos in Google Street View or scanning of handwritten document. Scikit-image package is used to preprocess and extract features. Images are changed to grayscale and then applied median filter to reduce noise. Rescaling intensity is also applied to the images to stretch contrast. After resizing to 32x32 pixels, the feature vectors of images are retrieved through histogram of oriented gradient, which computes gradient image and gradient histograms.
+Computer font character and words from English Generator are also changed to grayscale and resized to 32x32 pixels before extracting features through histogram of oriented gradient.
 
 ## Support Vector Machine Classifier
+
+Support Vector Machine Classifier (SVC) aims to identify and differentiate characters object
 
 ## Neural Netwrok Model
 
 ## HTML page
+
+contours
 
 ## Contact 
 If you have any questions or suggestions feel free to contact me at <kftam@connect.ust.hk>.
