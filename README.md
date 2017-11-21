@@ -1,12 +1,12 @@
 # Assessment Task for AI/Digital Analyst
 
-This is a simple HTML page taking an image with English words and numbers and returning the text on it. An English word image generator produce character images in different font and font sizes. Then, those images generated and other character images are fed to a neural network model. The idea of the preprocessing method and model is from [here](http://francescopochetti.com/text-recognition-natural-scenes/#first). The model is used to retrieved the text from the image.
+This is a HTML page taking an image with English words and numbers and returning the text on it. An English word image generator produce character images in different font and font sizes. Then, those images generated and other character images are fed to a neural network model. The idea of the preprocessing method and model is from [here](http://francescopochetti.com/text-recognition-natural-scenes/#first). The model is used to retrieved the text from the image.
 
 ![index_screen](https://user-images.githubusercontent.com/33834357/33052612-a88e3248-ceaa-11e7-9a9f-095aaefc50e0.JPG)
 
 The result page:
 
-![result_screen](https://user-images.githubusercontent.com/33834357/33053394-4c428b3e-ceae-11e7-8717-8dc2e414cd51.JPG)
+![result_screen](https://user-images.githubusercontent.com/33834357/33080444-1247f2c4-cf13-11e7-8cff-b9827331e679.JPG)
 
 ## Getting Started
 
@@ -43,17 +43,28 @@ Apart from English Word Generator, other English character and number datasets a
  * A subset of 6283 street view character image from Chars74k dataset in [here](https://www.kaggle.com/c/street-view-getting-started-with-julia/data)
  * A handwritten character dataset of 14000 images from [EMNIST](https://www.nist.gov/itl/iad/image-group/emnist-dataset)
  
-Moreover, an object image dataset from [CIFAR-10](https://www.kaggle.com/c/cifar-10/data) is used to recognize objects other than character and number.
+Moreover, an non-text object image dataset from [CIFAR-10](https://www.kaggle.com/c/cifar-10/data) is used to recognize non-text objects other than character and number.
 
 ## Preprocessing and Extracting Features
 
-Images are preprocessed and then features are extracted before feeding them to the models. Street view character image, handwritten character and object image datasets are noisy images from photos in Google Street View or scanning of handwritten document. Scikit-image package is used to preprocess and extract features. Images are changed to [grayscale](http://scikit-image.org/docs/dev/api/skimage.color.html#skimage.color.rgb2gray) and then applied [median filter](http://scikit-image.org/docs/dev/api/skimage.filters.html#skimage.filters.median) to reduce noise. [Rescaling intensity](http://scikit-image.org/docs/dev/api/skimage.exposure.html#skimage.exposure.rescale_intensity) is also applied to the images to stretch contrast. After [resizing](http://scikit-image.org/docs/dev/api/skimage.transform.html#skimage.transform.resize) to 32x32 pixels, the feature vectors of images are retrieved through [histogram of oriented gradient](http://scikit-image.org/docs/dev/auto_examples/features_detection/plot_hog.html), which computes gradient image and gradient histograms.
+Images are preprocessed and then features are extracted before feeding them to the models. Street view character image, handwritten character and non-text object image datasets are noisy images from photos in Google Street View or scanning of handwritten document. Scikit-image package is used to preprocess and extract features. 
+
+Images are changed to [grayscale](http://scikit-image.org/docs/dev/api/skimage.color.html#skimage.color.rgb2gray) and then applied [median filter](http://scikit-image.org/docs/dev/api/skimage.filters.html#skimage.filters.median) to reduce noise. [Rescaling intensity](http://scikit-image.org/docs/dev/api/skimage.exposure.html#skimage.exposure.rescale_intensity) is also applied to the images to stretch contrast. After [resizing](http://scikit-image.org/docs/dev/api/skimage.transform.html#skimage.transform.resize) to 32x32 pixels, the feature vectors of images are retrieved through [histogram of oriented gradient](http://scikit-image.org/docs/dev/auto_examples/features_detection/plot_hog.html), which computes gradient image and gradient histograms.
+
 Computer font character and words from English Generator are also changed to grayscale and resized to 32x32 pixels before extracting features through histogram of oriented gradient.
+
 The lists of features for each image are saved to a txt file.
 
 ## Support Vector Machine Classifier
 
-Support Vector Machine Classifier (SVC) aims at identifying and differentiating characters from other non-text object. Scikit-learn [SVM](http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html) package is used to build the model. Radial basis function is used as the kernel function. Features of street view character and object images are loaded, shuffled randomly and inputted to train the SVC model. The average recall of model through cross validation is 89%. The model is then saved to svmmodel.pkl file after fitting data.
+Support Vector Machine Classifier (SVC) aims at identifying and differentiating characters from other non-text object. Scikit-learn [SVM](http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html) package is used to build the model. Radial basis function is used as the kernel function. 
+
+The following features are loaded, shuffled randomly and inputted to train the SVC model.
+
+ * Street view character and 
+ * Non-text object images  
+
+The average recall of model through cross validation is 89%. The model is then saved to svmmodel.pkl file after fitting data.
 
 ## Neural Netwrok Model
 
@@ -64,7 +75,14 @@ Multi-layer Perceptron (MLP) neural network model aims at classifying an image t
  * Learning rate, "invscaling": gradually decreases the learning rate
  * 5 Hidden Layers with 300 neurons
 
-Features of street view character image, handwritten character image, computer font character image and image generated by English Word Generator are combined, shuffled randomly and inputted to train the MLP model. The average accuracy of model through cross validation is 68%. The model is then saved to mlpfullmodel.pkl file after fitting data.
+The following features are combined, shuffled randomly and inputted to train the MLP model. 
+
+ * Street view character image, 
+ * Handwritten character image, 
+ * Computer font character image and 
+ * Image generated by English Word Generator 
+ 
+The average accuracy of model through cross validation is 68%. The model is then saved to mlpfullmodel.pkl file after fitting data.
 
 ## HTML page
 
