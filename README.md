@@ -14,6 +14,7 @@ To run the page, it needs Python 3 to be installed. It also needs packages inclu
  * Matplotlib
  * scikit-image(skimage)
  * scikit-learn(sklearn)
+ * Flask
 Packages can be installed through pip.
 
 The HTML page can run when Flask_web.py is executed with Python 3 in the command line through the command "python Flask_web.py"
@@ -29,6 +30,10 @@ An image with English words and numbers on it can be uploaded. The text will be 
 ## Other Dataset
 
 ## Preprocessing
+
+## Neural Netwrok Model
+
+## HTML page
 
 ## Contact 
 If you have any questions or suggestions feel free to contact me at <kftam@connect.ust.hk>.
