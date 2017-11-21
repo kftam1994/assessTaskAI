@@ -1,7 +1,15 @@
-#Assessment Task for AI/Digital Analyst
+# Assessment Task for AI/Digital Analyst
 
-An English word image generators, then feed it to machine learning model [preferably neural network] to recognize the word from the image
+An English word image generators produce character images. Then, those images generated and other character images are fed to a neural network model to recognize the word from the image
 
-The HTML page can run when Flask_web.py is executed with Python 3
+## Getting Started
+
+To run the page, it needs Python 3 to be installed. It also needs packages including, Matplotlib, scikit-image(skimage) and scikit-learn(sklearn).
+
+The HTML page can run when Flask_web.py is executed with Python 3 in the command line through the command "python Flask_web.py"
+
+"Running on http://127.0.0.1:5000/" will be displayed.
 
 Then, the page can be browsed at the address http://127.0.0.1:5000
+
+An image with English words and numbers on it can be uploaded. The text will be retrieved and displayed in the result image after processing.
