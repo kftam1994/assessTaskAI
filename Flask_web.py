@@ -1,8 +1,12 @@
+#Flask is used to provide a simple HTML interface for uploading an image and displaying the result image after processing
+#HTML files are put in the "template" folder
+#Images are saved and accessed in the "static" folder
+#Package Flask required
 import os
 from flask import Flask, request, redirect, url_for, flash, render_template
 from werkzeug.utils import secure_filename
 
-'''http://flask.pocoo.org/docs/0.12/patterns/fileuploads/'''
+#reference: http://flask.pocoo.org/docs/0.12/patterns/fileuploads/
 
 UPLOAD_FOLDER = 'static'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
@@ -26,7 +30,7 @@ def upload_file():
         # if user does not select file, browser also
         # submit a empty part without filename
         if file.filename == '':
-            flash('No selected file')
+            flash('No file selected')
             return redirect(request.url)
         if allowed_file(file.filename)==False:
             flash('Not an image')
@@ -87,15 +91,19 @@ def process(filename):
 	blank_image=np.zeros(image.shape,dtype=np.uint8)
 	ax.imshow(blank_image, interpolation='nearest', cmap=plt.cm.gray)
 	for point,text in zip(np.array(list_image)[filter_char.astype(bool)].tolist(),result):
-		ax.text((point[3]+point[2])/2,(point[1]+point[0])/2,text,color='white',fontsize=15)
-	ax.axis('image')
+		ax.text((point[3]+point[2])/2,(point[1]+point[0])/2,text,color="white",fontsize=20)
+	ax.axis("image")
 	ax.set_xticks([])
 	ax.set_yticks([])
+	try:
+    		os.remove(os.path.join(app.config['UPLOAD_FOLDER'], "result_"+filename))
+	except OSError:
+    		pass
 	#Save the result
 	plt.savefig(os.path.join(app.config['UPLOAD_FOLDER'], "result_"+filename))
-	plt.close(fig)
+	plt.close("all")
 			   
 							   
-							   
+#Run the web app							   
 if __name__ == '__main__':
    app.run()
