@@ -25,9 +25,14 @@ Then, the page can be browsed at the address http://127.0.0.1:5000
 
 An image with English words and numbers on it can be uploaded. The text will be retrieved and displayed in the result image after processing.
 
-## English Generator
+## English Word Generator
+
+An English word generator produces images of English characters and numbers for each font and each font size in a black background. It includes 26 upper case and lower case characters, and numbers, 0 to 9. Those 53 font files are in "src_smallSubset/Font/" folder. 4 Font sizes inlcuding, 8,12,36,40, are used. 13144 images are produced and saved to the folder "words_generated".
 
 ## Other Dataset
+
+Apart from English Word Generator, other English character and number datasets are also inputted to improve the performance of the model. It include computer font character from [Chars74k dataset](http://www.ee.surrey.ac.uk/CVSSP/demos/chars74k/), a subset of street view character image from [dataset](https://www.kaggle.com/c/street-view-getting-started-with-julia/data), and a handwritten character dataset from [EMNIST](https://www.nist.gov/itl/iad/image-group/emnist-dataset).
+Moreover, an object image dataset from [CIFAR-10](https://www.kaggle.com/c/cifar-10/data) is used to recognize objects other than character and number.
 
 ## Preprocessing
 
