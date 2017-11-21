@@ -1,10 +1,14 @@
 # Assessment Task for AI/Digital Analyst
 
-An English word image generators produce character images. Then, those images generated and other character images are fed to a neural network model to recognize the word from the image
+This is a simple HTML page taking an image with English words and numbers and returning the text on it. An English word image generators produce character images. Then, those images generated and other character images are fed to a neural network model. The model is used to retrieved the text from the image.
 
 ## Getting Started
 
-To run the page, it needs Python 3 to be installed. It also needs packages including, Matplotlib, scikit-image(skimage) and scikit-learn(sklearn).
+To run the page, it needs Python 3 to be installed. It also needs packages including
+ * Matplotlib
+ * scikit-image(skimage)
+ * scikit-learn(sklearn)
+Packages can be installed through pip.
 
 The HTML page can run when Flask_web.py is executed with Python 3 in the command line through the command "python Flask_web.py"
 
