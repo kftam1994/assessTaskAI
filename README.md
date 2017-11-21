@@ -34,9 +34,10 @@ An English word generator produces images of English characters and numbers for 
 Apart from English Word Generator, other English character and number datasets are also inputted to improve the performance of the model. Datasets of different variation of character include computer font character from [Chars74k dataset](http://www.ee.surrey.ac.uk/CVSSP/demos/chars74k/), a subset of street view character image from [dataset](https://www.kaggle.com/c/street-view-getting-started-with-julia/data), and a handwritten character dataset from [EMNIST](https://www.nist.gov/itl/iad/image-group/emnist-dataset).
 Moreover, an object image dataset from [CIFAR-10](https://www.kaggle.com/c/cifar-10/data) is used to recognize objects other than character and number.
 
-## Preprocessing
+## Preprocessing and Extracting Features
 
 Street view character image, handwritten character and object image datasets are noisy images from photos in Google Street View or scanning of handwritten document. 
+Computer font character and words from English Generator are also changed to grayscale and resized to 32x32 pixels.
 
 ## Support Vector Machine Classifier
 
