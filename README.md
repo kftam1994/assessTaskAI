@@ -18,7 +18,10 @@ To run the page, it needs Python 3 to be installed. It also needs packages inclu
 
 Packages can be installed through pip.
 
-The HTML page can run when Flask_web.py is executed with Python 3 in the command line through the command "python Flask_web.py"
+The HTML page can run when Flask_web.py is executed with Python 3 in the command line through the command 
+```
+python Flask_web.py
+```
 
 "Running on http://127.0.0.1:5000/" will be displayed.
 
