@@ -63,7 +63,12 @@ Features of street view character image, handwritten character image and image g
 
 ## HTML page
 
-contours
+The HTML page is a simple interface for user to upload an image, process by predicting the text and display the output image. It is built with [Flask](http://flask.pocoo.org/), which is a tool to create a page and run python function in the HTML page. The image is firstly uploaded by the user and saved in the "static" folder. The image is then read by the function to predict text in the image, and print and save the text on a blank background. The function look for objects in the image through searching for contours at level 0.45 by [find.contours](http://scikit-image.org/docs/dev/api/skimage.measure.html#skimage.measure.find_contours) of Scikit-image package. After finding contours, the cropping image of objects appearing in the image 
+
+## Improvement
+
+CNN
+Full Chars74k dataset
 
 ## Contact 
 If you have any questions or suggestions feel free to contact me at <kftam@connect.ust.hk>.
