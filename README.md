@@ -6,7 +6,7 @@ This is a simple HTML page taking an image with English words and numbers and re
 
 The result page:
 
-![result_screen](https://user-images.githubusercontent.com/33834357/33052636-ca447d0c-ceaa-11e7-9b91-d71914a0c993.JPG)
+![result_screen](https://user-images.githubusercontent.com/33834357/33053394-4c428b3e-ceae-11e7-8717-8dc2e414cd51.JPG)
 
 ## Getting Started
 
