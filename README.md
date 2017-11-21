@@ -73,9 +73,11 @@ The HTML page is a simple interface for user to upload an image, process by pred
 ## Improvement
 
  * [Convolutional Neural Networks](https://en.wikipedia.org/wiki/Convolutional_neural_network)
+ 
 Convolutional neural network is a deep, feed-forward artificial neural networks for image processing and recognition. It includes multiple Convolutional and Pooling layers to learn the image in pixels. It has an advantage of less preprocessing procedures required when it is compared to my model.
  
  * A full [Chars74k](http://www.ee.surrey.ac.uk/CVSSP/demos/chars74k/) dataset
+ 
 The full Chars74k dataset contains 50000 character images from street view, computer font and handwritten text. Using the whole dataset provides a more comprehensive examples of characters in different sizes, fonts and contexts, which may benefit the machine learning model.
 
 ## Contact 
