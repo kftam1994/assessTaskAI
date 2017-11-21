@@ -1,6 +1,7 @@
 # Assessment Task for AI/Digital Analyst
 
-This is a simple HTML page taking an image with English words and numbers and returning the text on it. An English word image generator produce character images in different font and font sizes. Then, those images generated and other character images are fed to a neural network model. The model is used to retrieved the text from the image.
+This is a simple HTML page taking an image with English words and numbers and returning the text on it. An English word image generator produce character images in different font and font sizes. Then, those images generated and other character images are fed to a neural network model. The idea of the preprocessing method and model is from [here](http://francescopochetti.com/text-recognition-natural-scenes/#first). The model is used to retrieved the text from the image.
+
 ![index_screen](https://user-images.githubusercontent.com/33834357/33052612-a88e3248-ceaa-11e7-9a9f-095aaefc50e0.JPG)
 
 The result page
