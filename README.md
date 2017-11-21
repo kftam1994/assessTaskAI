@@ -1,4 +1,4 @@
-# Assessment Task for AI/Digital Analyst
+# Assessment Task for AI/Digital Analyst (Andy Tam)
 
 This is a HTML page taking an image with English words and numbers and returning the text on it. An English word image generator produce character images in different font and font sizes. Then, those images generated and other character images are fed to a neural network model. The idea of the preprocessing method and model is from [here](http://francescopochetti.com/text-recognition-natural-scenes/#first). The model is used to retrieved the text from the image.
 
@@ -35,11 +35,11 @@ Flow diagram
 
 ![flow_diagram_assesstaskai](https://user-images.githubusercontent.com/33834357/33081420-49d5b9f4-cf15-11e7-81cf-f61bb0b20025.png)
 
-## English Word Generator
+### English Word Generator
 
 An English word generator produces images of English characters and numbers for each font and each font size in a black background. It includes 26 upper case and lower case characters, and numbers, 0 to 9. Those 53 font files are in "src_smallSubset/Font/" folder. 4 Font sizes, 8,12,36,40, are used. 13144 images are produced and saved to the folder "words_generated".
 
-## Other Dataset
+### Other Dataset
 
 Apart from English Word Generator, other English character and number datasets are also inputted to improve the performance of the model. Datasets of different variation of character include:
 
@@ -49,7 +49,7 @@ Apart from English Word Generator, other English character and number datasets a
  
 Moreover, an non-text object image dataset from [CIFAR-10](https://www.kaggle.com/c/cifar-10/data) is used to recognize non-text objects other than character and number.
 
-## Preprocessing and Extracting Features
+### Preprocessing and Extracting Features
 
 Images are preprocessed and then features are extracted before feeding them to the models. Street view character image, handwritten character and non-text object image datasets are noisy images from photos in Google Street View or scanning of handwritten document. Scikit-image package is used to preprocess and extract features. 
 
@@ -59,7 +59,7 @@ Computer font character and words from English Generator are also changed to gra
 
 The lists of features for each image are saved to a txt file.
 
-## Support Vector Machine Classifier
+### Support Vector Machine Classifier
 
 Support Vector Machine Classifier (SVC) aims at identifying and differentiating characters from other non-text object. Scikit-learn [SVM](http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html) package is used to build the model. Radial basis function is used as the kernel function. 
 
@@ -70,7 +70,7 @@ The following features are loaded, shuffled randomly and inputted to train the S
 
 The average recall of model through cross validation is 89%. The model is then saved to svmmodel.pkl file after fitting data.
 
-## Neural Netwrok Model
+### Neural Netwrok Model
 
 Multi-layer Perceptron (MLP) neural network model aims at classifying an image to 62 classes of upper case and lower case characters, and digits by backpropagation. Scikit-learn [MLP](http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html) package is used to build the model. The following are the parameters:
 
@@ -88,7 +88,7 @@ The following features are combined, shuffled randomly and inputted to train the
  
 The average accuracy of model through cross validation is 68%. The model is then saved to mlpfullmodel.pkl file after fitting data.
 
-## HTML page
+### HTML page
 
 The HTML page is a simple interface for user to upload an image, process by predicting the text and display the output image. It is built with [Flask](http://flask.pocoo.org/), which is a tool to create a page and run python function in the HTML page. The image is firstly uploaded by the user in the index.html page and saved in the "static" folder. The image is then read by the function to predict text in the image, and print and save the text on a blank background. The function look for objects in the image through searching for contours at level 0.45 by [find.contours](http://scikit-image.org/docs/dev/api/skimage.measure.html#skimage.measure.find_contours) of Scikit-image package. After finding contours, SVC model is loaded and takes the cropping images of objects appearing in the image to filter out images containing non-text objects. MLP model is then loaded and takes the filtered images to identify each character and number. The text is printed on a blank background image, and this result image is saved to the "static" folder. The original image and the result image are displyed in the result.html page.
 
