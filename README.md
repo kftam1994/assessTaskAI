@@ -77,7 +77,7 @@ Multi-layer Perceptron (MLP) neural network model aims at classifying an image t
  * Solver: stochastic gradient-based optimizer
  * Activation function: hyperbolic tan function
  * Learning rate, "invscaling": gradually decreases the learning rate
- * 5 hidden layers with 300 neurons per layer
+ * 5 hidden layers with 300 neurons per layer, and one input and output layer
 
 The following features are combined, shuffled randomly and inputted to train the MLP model. 
 
