@@ -33,7 +33,7 @@ An image with English words and numbers on it can be uploaded. The text will be 
 
 Flow diagram
 
-![flow_diagram_assesstaskai](https://user-images.githubusercontent.com/33834357/33081420-49d5b9f4-cf15-11e7-81cf-f61bb0b20025.png)
+![flow_diagram_assesstaskai](https://user-images.githubusercontent.com/33834357/33108486-59ccd178-cf77-11e7-9285-76064eb6f336.png)
 
 ### English Word Generator
 
