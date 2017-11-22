@@ -94,9 +94,9 @@ The average accuracy of model through cross validation is 68%. The model is then
 
 The HTML page is a simple interface for user to upload an image, process by predicting the text and display the output image. It is built with [Flask](http://flask.pocoo.org/), which is a tool to create a page and run python function in the HTML page. 
 
-The image is firstly uploaded by the user in the index.html page and saved in the "static" folder. The image is then read by the function to predict text in the image, and print and save the text on a blank background. The function look for objects in the image through searching for contours at level 0.45 by [find.contours](http://scikit-image.org/docs/dev/api/skimage.measure.html#skimage.measure.find_contours) of Scikit-image package. 
+The image is firstly uploaded by the user in the index.html page and saved to the "static" folder. The image is then read by the function to predict text in the image, and print and save the text on a blank background. The function looks for objects in the image through searching for contours at level 0.45 by [find.contours](http://scikit-image.org/docs/dev/api/skimage.measure.html#skimage.measure.find_contours) of Scikit-image package. 
 
-After finding contours, SVC model is loaded and takes the cropping images of objects appearing in the image to filter out images containing non-text objects. MLP model is then loaded and takes the filtered images to identify each character and digit. The text is printed on a blank background image, and this result image is saved to the "static" folder. The original image and the result image are displyed in the result.html page.
+After finding contours, SVC model is loaded and takes the cropping images of objects appearing in the image to filter out images containing non-text objects. MLP model is then loaded and takes the filtered images to identify each character and digit. The text is printed on a blank background image, and this result image is saved to the "static" folder. The text, original image and the result image are displyed in the result.html page.
 
 Images in "src_smallSubset/examples_for_test/" folder are example images to be uploaded to the page for demonstrating the result.
 
