@@ -2,6 +2,8 @@
 
 This is a HTML page taking an image with English words and numbers and returning the text on it. An English word image generator produces character images in different fonts and font sizes. Then, those images generated and other character images are fed to a neural network model. The idea of the preprocessing method and model is from [here](http://francescopochetti.com/text-recognition-natural-scenes/#first). Afterwards, the classifying model is used to retrieved the text from the image.
 
+The index page:
+
 ![index_screen](https://user-images.githubusercontent.com/33834357/33114230-ebec6446-cf96-11e7-95cf-01caa39e1a51.JPG)
 
 The result page:
