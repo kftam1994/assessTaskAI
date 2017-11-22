@@ -57,7 +57,7 @@ Images are preprocessed and then features are extracted before feeding them to t
 
 Images are changed to [grayscale](http://scikit-image.org/docs/dev/api/skimage.color.html#skimage.color.rgb2gray) and then applied [median filter](http://scikit-image.org/docs/dev/api/skimage.filters.html#skimage.filters.median) to reduce noise. [Rescaling intensity](http://scikit-image.org/docs/dev/api/skimage.exposure.html#skimage.exposure.rescale_intensity) is also applied to the images to stretch contrast. After [resizing](http://scikit-image.org/docs/dev/api/skimage.transform.html#skimage.transform.resize) to 32x32 pixels, the feature vectors of images are retrieved through [histogram of oriented gradient](http://scikit-image.org/docs/dev/auto_examples/features_detection/plot_hog.html), which computes gradient image and gradient histograms.
 
-Computer font character and words from English Generator are also changed to grayscale and resized to 32x32 pixels before extracting features through histogram of oriented gradient.
+Images of Computer font character and words from English Generator are also changed to grayscale and resized to 32x32 pixels before extracting features through histogram of oriented gradient.
 
 The lists of features for each image are saved to a .txt file.
 
