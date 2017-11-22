@@ -25,7 +25,7 @@ python Flask_web.py
 
 "Running on http://127.0.0.1:5000/" will be displayed.
 
-Then, the page can be browsed at the address http://127.0.0.1:5000
+Then, the page can be browsed at the address http://127.0.0.1:5000/
 
 An image with English words and numbers on it can be uploaded. The text will be retrieved and displayed in the result image after processing.
 
