@@ -35,7 +35,7 @@ An image with English words or digits on it can be uploaded. The text will be re
 
 Flow diagram
 
-![flow_diagram_assesstaskai](https://github.com/kftam1994/assessTaskAI/blob/master/Flow_diagram_assessTaskAI.png)
+![flow_diagram_assesstaskai](https://github.com/kftam1994/assessTaskAI/blob/master/Flow_diagram.png)
 
 ### English Word Generator
 
