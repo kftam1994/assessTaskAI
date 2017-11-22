@@ -43,7 +43,7 @@ An English word generator produces images of English characters and digits for e
 
 ### Other Dataset
 
-Apart from English Word Generator, other English character and digit datasets are also inputted to improve the performance of the model. Datasets of different variation of character include:
+Apart from English Word Generator, other English character and digit datasets are also inputted to improve the performance of the model. Datasets of different variation of character include
 
  * 6979 computer font character images from [Chars74k](http://www.ee.surrey.ac.uk/CVSSP/demos/chars74k/) dataset
  * A subset of 6283 street view character images from Chars74k dataset in [here](https://www.kaggle.com/c/street-view-getting-started-with-julia/data)
