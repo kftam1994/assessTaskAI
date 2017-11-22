@@ -74,7 +74,7 @@ The average recall of model through cross validation is 89%. The model is then s
 
 ### Neural Netwrok Model
 
-Multi-layer Perceptron (MLP) neural network model aims at classifying an image to 62 classes of upper case and lower case characters, and digits by backpropagation. Scikit-learn [MLP](http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html) package is used to build the model. The parameters are as follows:
+Multi-layer Perceptron (MLP) neural network model is a backpropagation model aiming at classifying an image to 62 classes of upper case and lower case characters, and digits. Scikit-learn [MLP](http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html) package is used to build the model. The parameters are as follows:
 
  * Solver: stochastic gradient-based optimizer
  * Activation function: hyperbolic tan function
