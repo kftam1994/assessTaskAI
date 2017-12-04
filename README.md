@@ -45,11 +45,11 @@ An English word generator produces images of English characters and digits for e
 
 Apart from English Word Generator, other English character and digit datasets are also inputted to improve the performance of the model. Datasets of different variation of character include
 
- * 6979 computer font character images from [Chars74k](http://www.ee.surrey.ac.uk/CVSSP/demos/chars74k/) dataset
+ * 62992 computer font character images from [Chars74k](http://www.ee.surrey.ac.uk/CVSSP/demos/chars74k/) dataset
  * A subset of 6283 street view character images from Chars74k dataset in [here](https://www.kaggle.com/c/street-view-getting-started-with-julia/data)
- * A handwritten character dataset of 14000 images from [EMNIST](https://www.nist.gov/itl/iad/image-group/emnist-dataset)
+ * A handwritten character dataset of 6979 images from [EMNIST](https://www.nist.gov/itl/iad/image-group/emnist-dataset)
  
-Moreover, an non-text object image dataset from [CIFAR-10](https://www.kaggle.com/c/cifar-10/data) is used to recognize non-text objects other than characters and digits.
+Moreover, an non-text object image dataset of 14000 images from [CIFAR-10](https://www.kaggle.com/c/cifar-10/data) is used to recognize non-text objects other than characters and digits.
 
 ### Preprocessing and Extracting Features
 
